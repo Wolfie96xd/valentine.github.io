@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Barbie :3</title>
+</head>
+<body>
+
+    <audio id="bg-music" loop>
+        <source src="./src/city_stars.mp3" type="audio/mp3">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+
+    <button id="play-music">Música/button>
+
+
+    <div class="container">
+        <div class="tenor-gif-embed" data-postid="3601548547969733414" data-share-method="host" data-aspect-ratio="1" data-width="100%"><a href="https://tenor.com/view/raccoon-love-raccoon-raccoon-rose-gif-3601548547969733414">Raccoon Love Raccoon Rose GIF</a>from <a href="https://tenor.com/search/raccoon+love-gifs">Raccoon Love GIFs</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+        <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+        <h1>¿Serías mi San Valentín? 🥰</h1>
+        <p>Eres la persona más especial en mi vida. ¿Aceptas ser mi compañera en este día tan especial?</p>
+        <div class="btn">
+            <a href="si.html" class="btn-si">SI</a>
+            <a href="no1.html" class="btn-no">NO</a>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const audio = document.getElementById("bg-music");
+            const playButton = document.getElementById("play-music");
+
+            playButton.addEventListener("click", function() {
+                audio.play().then(() => {
+                    playButton.style.display = "none"; // Ocultar el botón una vez que se reproduce
+                }).catch(error => {
+                    console.log("Error al reproducir:", error);
+                });
+            });
+
+            if (localStorage.getItem("musicTime")) {
+                audio.currentTime = localStorage.getItem("musicTime");
+            }
+
+            setInterval(() => {
+                localStorage.setItem("musicTime", audio.currentTime);
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
